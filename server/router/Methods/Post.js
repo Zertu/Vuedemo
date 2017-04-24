@@ -13,6 +13,7 @@ default:
 }
 
 async function fenci(req,res){
+	console.log(req)
 	const result = nodejieba.cut(req.query['sentence'])
 	res.body=result
 

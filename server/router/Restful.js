@@ -16,7 +16,7 @@ async function router(method,ctx,next){
         res= GetRes(await Get(ctx))
         break
         case 'POST':
-        res= GetRes(await Get(ctx))
+        res= GetRes(await Post(ctx))
         break
         case 'DELETE':
         break
