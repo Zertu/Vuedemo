@@ -1,4 +1,5 @@
 const nodejieba = require("nodejieba")
+,topN = 4
 exports = module.exports = async function (ctx) {
     const req = ctx.request,
         res = ctx.response
@@ -14,9 +15,7 @@ exports = module.exports = async function (ctx) {
 }
 
 async function fenci(req, res) {
-    	console.log(req.body)
-    const result = nodejieba.cut(req.body['sentence'])
-    res.body = result
+    res.body = nodejieba.extract(req.body['sentence'],topN)
 
 }
 
