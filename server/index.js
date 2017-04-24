@@ -20,4 +20,6 @@ app.on('error', (err, ctx) =>
   log.error('server error', err, ctx.request)
 );
 
-app.listen(3001)
+app.listen(3001,function(){
+	console.log('server open at 139.224.232.97:3001')
+})
