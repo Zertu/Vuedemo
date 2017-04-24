@@ -1,6 +1,9 @@
 const koa = require('koa')
 ,app=new koa()
-Restful=require('./router/Restful')
+,Restful=require('./router/Restful')
+,bodyParser = require('koa-bodyparser')
+
+app.use(bodyParser())
 app.use(async (ctx,next)=>{  
         ctx.response.set('Access-Control-Allow-Origin', ' *')
         ctx.response.set("Access-Control-Allow-Headers", "Content-Type,Content-Length, Authorization, Accept,X-Requested-With")
@@ -9,6 +12,7 @@ app.use(async (ctx,next)=>{
         await next()
 })
 app.use((ctx,next)=>{
+	console.log(ctx.body)
     Restful.router(ctx.method,ctx,next).then(res=>{    
     ctx.body=res.body
     })

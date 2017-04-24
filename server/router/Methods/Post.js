@@ -14,8 +14,8 @@ exports = module.exports = async function (ctx) {
 }
 
 async function fenci(req, res) {
-    console.log(req)
-    const result = nodejieba.cut(req.query['sentence'])
+    	console.log(req.body)
+    const result = nodejieba.cut(req.body['sentence'])
     res.body = result
 
 }
