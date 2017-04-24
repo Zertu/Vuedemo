@@ -9,7 +9,6 @@ app.use(async (ctx,next)=>{
         await next()
 })
 app.use((ctx,next)=>{
-    let req=ctx.request
     Restful.router(ctx.method,ctx,next).then(res=>{    
     ctx.body=res.body
     })

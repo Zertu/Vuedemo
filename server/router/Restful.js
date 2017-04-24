@@ -9,7 +9,7 @@ const Get =require('./Methods/Get')
  * @returns {Object} Response 返回处理后的Response
  */
 async function router(method,ctx,next){
-    let res,req=ctx.request
+    let res
     switch (method){
         case 'GET':
         res= GetRes(await Get(ctx))
