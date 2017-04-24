@@ -10,7 +10,6 @@ const Get =require('./Methods/Get')
  */
 async function router(method,ctx,next){
     let res,req=ctx.request
-    console.log(ctx.method)
     switch (method){
         case 'GET':
         res= GetRes(await Get(ctx))
@@ -31,7 +30,6 @@ async function router(method,ctx,next){
         ctx.body='not found'
         break
     }
-    console.log(res)
     return res
 }
 
