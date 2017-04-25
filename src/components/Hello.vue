@@ -1,6 +1,7 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
+    <input type="test" v-model="sentence" />
     <input value="嗷嗷嗷" type='button' @click="a" />
   </div>
 </template>
@@ -11,18 +12,19 @@ export default {
   name: 'hello',
   data() {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: 'Welcome to Your Vue.js App',
+      sentence: '沉默却压抑着燃烧的我们'
     }
   },
   methods: {
-    a: async e => {
+    a: async function (e) {
       const res = await ajax('http://139.224.232.97:3001/fenci', {
         method: 'POST',
         body: {
-          sentence: '我爱你啊'
+          sentence: this.sentence
         }
       })
-      console.log(res)
+      console.log(this.msg = res)
     }
   }
 }

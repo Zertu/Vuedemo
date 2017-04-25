@@ -24,7 +24,7 @@ async function ajax(url, option) {
         .map(key => {
             if (option[key]) {
                 if (Object.prototype.toString.call(option[key]) === '[object Object]') {
-                    JSON.stringify(option[key])
+                   option[key]= JSON.stringify(option[key])
                 }
                 config[key] = option[key]
             }
