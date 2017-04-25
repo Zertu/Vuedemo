@@ -2,7 +2,7 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
     <input type="test" v-model="sentence" />
-    <input value="嗷嗷嗷" type='button' @click="a" />
+    <input value="分词" type='button' @click="fenci" />
   </div>
 </template>
 
@@ -17,7 +17,7 @@ export default {
     }
   },
   methods: {
-    a: async function (e) {
+    fenci: async function (e) {
       const res = await ajax('http://139.224.232.97:3001/fenci', {
         method: 'POST',
         body: {
