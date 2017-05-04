@@ -1,20 +1,27 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
+    <h1 v-if="shouldRender === false">{{ sentence }}</h1>
+    <div class="dividedText" v-for="r in result" v-else-if="shouldRender === true">
+      <dividedText v-bind:word="r.word" v-bind:weight="r.weight"></dividedText>
+    </div>
     <input type="test" v-model="sentence" />
-    <input value="分词" type='button' @click="fenci" />
-  </div>
+    <input value="分词" type='button' @click="fenci" /></div>
 </template>
 
 <script>
 import ajax from '../Fetch'
+import dividedText from './dividedText'
 export default {
   name: 'hello',
   data() {
     return {
-      msg: 'Welcome to Your Vue.js App',
-      sentence: '也许事与愿违'
+      sentence: '也许事与愿违',
+      shouldRender: false,
+      result:''
     }
+  },
+  components: {
+    dividedText: dividedText
   },
   methods: {
     fenci: async function (e) {
@@ -24,19 +31,19 @@ export default {
           sentence: this.sentence
         }
       })
-      console.log(this.msg = res)
+      this.shouldRender = true
+      this.result = res
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-h1{
+h1 {
   font-weight: normal;
-}
-
-
-a {
   color: #42b983;
+}
+.dividedText{
+  display: inline-flex;
 }
 </style>
