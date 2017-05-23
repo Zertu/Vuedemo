@@ -1,20 +1,22 @@
 {
-	"name": "server",
-	"version": "1.0.0",
-	"description": "",
-	"main": "index.js",
-	"scripts": {
-		"dev":"node index.js",
-		"start": "pm2 start process.yml",
-		"test": "echo \"Error: no test specified\" && exit 1"
-	},
-	"author": "",
-	"license": "ISC",
-	"devDependencies": {
-		"koa": "^2.2.0",
-		"koa-bodyparser": "^4.2.0",
-		"koa-router": "^5.4.0",
-		"nodejieba": "^2.2.4",
-		"pm2": "^2.4.5"
-	}
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node index.js",
+    "start": "pm2 start process.yml"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "koa": "^2.2.0",
+    "koa-bodyparser": "^4.2.0",
+    "koa-router": "^5.4.2",
+    "pm2": "^2.4.5"
+  },
+  "dependencies": {
+    "mysql2": "^1.2.0",
+    "sequelize": "^3.30.4"
+  }
 }
