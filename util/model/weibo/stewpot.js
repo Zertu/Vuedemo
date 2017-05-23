@@ -1,4 +1,4 @@
-const Sequelize = require('Sequelize'),
+const Sequelize = require('sequelize'),
 sequelize=require('../../model')
 const stewpot = sequelize.define('stewpot', {
   id: {
