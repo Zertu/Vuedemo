@@ -17,8 +17,8 @@ app.use(async (ctx,next)=>{
 
 
 app.on('error', (err, ctx) =>
-		console.error('server error', err, ctx.request)
-      );
+	console.error('server error', err, ctx.request)
+);
 
 app.listen(3001,function(){
 	console.log('server open at 139.224.232.97:3001')
