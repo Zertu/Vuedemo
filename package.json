@@ -16,7 +16,7 @@
     "pm2": "^2.4.5"
   },
   "dependencies": {
-    "mysql2": "^1.2.0",
+    "mysql": "^1.2.0",
     "sequelize": "^3.30.4"
   }
 }
