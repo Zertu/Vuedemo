@@ -8,10 +8,14 @@ router.get('/stewpot', async function (next) {
   this.response.body = await stewpot.findAndCountAll({limit: pageSize , offset:idx*pageSize+pageSize})
 })
 router.get('/stewpotall',async function (next) { 
-  this.response.body = await stewpot.findAll({attributes:[[sequelize.fn('DATE_FORMAT', sequelize.col('create_time'),'%Y%m%d'), 'days'],[sequelize.fn('count','*'),'count']],group:'days'})
+  const group = await stewpot.findAll({attributes:[[sequelize.fn('DATE_FORMAT', sequelize.col('create_time'),'%Y%m%d'), 'days'],[sequelize.fn('count','*'),'count']],group:'days'})
+     data=await beef.findAll({order:[['create_time', 'asc']]})
+     this.response.body=[group,data]
  })
  router.get('/elemeall',async function (next) { 
-  this.response.body = await eleme.findAll({attributes:[[sequelize.fn('DATE_FORMAT', sequelize.col('create_time'),'%Y%m%d'), 'days'],[sequelize.fn('count','*'),'count']],group:'days'})
+  const group = await eleme.findAll({attributes:[[sequelize.fn('DATE_FORMAT', sequelize.col('create_time'),'%Y%m%d'), 'days'],[sequelize.fn('count','*'),'count']],group:'days'})
+     data=await beef.findAll({order:[['create_time', 'asc']]})
+     this.response.body=[group,data]
  })
  router.get('/beefall',async function (next) { 
      const group = await beef.findAll({attributes:[[sequelize.fn('DATE_FORMAT', sequelize.col('create_time'),'%Y%m%d'), 'days'],[sequelize.fn('count','*'),'count']],group:'days'})
