@@ -5,7 +5,7 @@ router.get('/stewpot', async function (next) {
   const query = this.request.query,
   pageSize=query.num-0,
   idx=query.pagenum-0
-  this.response.body = await stewpot.findAndCountAll({limit: pageSize , offset:idx*pageSize+pageSize})
+  this.response.body = await stewpot.findAndCountAll({limit: pageSize , offset:idx*pageSize-pageSize})
 })
 router.get('/stewpotall',async function (next) { 
   const group = await stewpot.findAll({attributes:[[sequelize.fn('DATE_FORMAT', sequelize.col('create_time'),'%Y%m%d'), 'days'],[sequelize.fn('count','*'),'count']],group:'days'})
@@ -26,12 +26,12 @@ router.get('/eleme', async function (next) {
   const query = this.request.query,
   pageSize=query.num-0,
   idx=query.pagenum-0
-  this.response.body = await eleme.findAndCountAll({limit: pageSize , offset:idx*pageSize+pageSize,order:'create_time asc'})
+  this.response.body = await eleme.findAndCountAll({limit: pageSize , offset:idx*pageSize-pageSize,order:'create_time asc'})
 })
 router.get('/beef', async function (next) {
   const query = this.request.query,
   pageSize=query.num-0,
   idx=query.pagenum-0
-  this.response.body = await beef.findAndCountAll({limit: pageSize , offset:idx*pageSize+pageSize,order:'create_time asc'})
+  this.response.body = await beef.findAndCountAll({limit: pageSize , offset:idx*pageSize-pageSize,order:'create_time asc'})
 })
 module.exports = router
