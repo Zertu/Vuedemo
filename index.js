@@ -5,7 +5,6 @@ const koa = require('koa')
 	router = require('./router')
 app.use(cors())
 app.use(bodyParser())
-console.log(bodyParser())
 app.use(router.routes())
 app.use(router.allowedMethods())
 
